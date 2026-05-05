@@ -3,8 +3,8 @@
 Welcome to my technical notes and documentation.
 
 This site covers:
-- VXLAN / EVPN
-- SD-WAN
-- BGP
-- Automation / Python
-- Lab topologies and configuration examples
+vxlan-evpn/evpn-basic.md
+sdwan/vedge-template.md
+bgp/rr-design.md
+automation/python-netmiko.md
+lab/evpn-lab-topology.md
