@@ -77,3 +77,12 @@ router bgp 65000
  neighbor 10.0.0.2 remote-as 65000
  neighbor 10.0.0.2 update-source Loopback0
  neighbor 10.0.0.2 route-reflector-client
+
+On client
+```text
+router bgp 65000
+ neighbor 10.0.255.1 remote-as 65000
+ neighbor 10.0.255.1 update-source Loopback0
+
+ neighbor 10.0.255.2 remote-as 65000
+ neighbor 10.0.255.2 update-source Loopback0
