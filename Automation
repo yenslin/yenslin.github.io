@@ -1,0 +1,122 @@
+Automation / Python
+Overview
+This section showcases my work in network automation using Python.
+My focus areas include:
+
+Cisco DNAC automation
+
+Cisco ISE ERS API automation
+
+Cisco WLC REST API automation
+
+Configuration generation using Jinja2
+
+Log parsing and bulk operations
+
+Integration with Ansible and Git workflows
+
+Skills & Tools
+Python 3.x
+
+REST APIs (GET/POST/PUT/DELETE)
+
+JSON / YAML
+
+Requests library
+
+Netmiko / Paramiko
+
+Jinja2 templating
+
+Ansible automation
+
+Git / GitHub
+
+Postman for API testing
+
+Cisco DNAC API
+
+Cisco ISE ERS API
+
+Cisco WLC REST API
+
+Example Projects
+1. Cisco DNAC – Retrieve All Network Devices
+Goal: Automatically pull device inventory from DNAC.
+API: /dna/intent/api/v1/network-device
+
+python
+import requests
+import json
+
+dnac = "https://dnac.example.com"
+token = "YOUR_TOKEN"
+
+headers = {"X-Auth-Token": token}
+
+url = f"{dnac}/dna/intent/api/v1/network-device"
+response = requests.get(url, headers=headers, verify=False)
+
+devices = response.json()
+print(json.dumps(devices, indent=2))
+2. Cisco ISE – Bulk Import MAC Addresses
+Goal: Automate endpoint onboarding.
+API: /ers/config/endpoint
+
+python
+import requests
+import json
+
+ise = "https://ise.example.com"
+headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+}
+
+payload = {
+    "ERSEndPoint": {
+        "name": "TestDevice",
+        "mac": "AA:BB:CC:DD:EE:FF",
+        "groupId": "123456"
+    }
+}
+
+response = requests.post(
+    f"{ise}/ers/config/endpoint",
+    headers=headers,
+    auth=("admin", "password"),
+    data=json.dumps(payload),
+    verify=False
+)
+
+print(response.status_code)
+3. Cisco WLC – Retrieve AP List
+Goal: Export AP inventory for documentation and auditing.
+
+python
+import requests
+
+wlc = "https://wlc.example.com"
+response = requests.get(f"{wlc}/api/ap", auth=("admin", "password"), verify=False)
+print(response.json())
+4. Generate Config Using Jinja2
+python
+from jinja2 import Template
+
+template = Template("""
+interface {{ interface }}
+ description {{ desc }}
+ switchport access vlan {{ vlan }}
+""")
+
+print(template.render(interface="Gig1/0/1", desc="Uplink", vlan=10))
+Future Work
+Full DNAC automation workflow
+
+ISE policy automation
+
+Ansible playbooks for switch provisioning
+
+Automated lab topology deployment
+
+API-driven network documentation
