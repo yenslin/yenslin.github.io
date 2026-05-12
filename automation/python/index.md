@@ -1,8 +1,3 @@
----
-layout: default
-title: Python Automation
----
-
 # Python Automation
 
 ## Overview
